@@ -9,7 +9,7 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-function startApp(name){
+function startApp(name) {
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
@@ -33,20 +33,20 @@ function startApp(name){
  * @param  {string} text data typed by the user
  * @returns {void}
  */
-  
+
 function onDataReceived(text) {
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
   }
-  else if (text === 'help\n'){
+  else if (text === 'help\n') {
     help();
   }
-  else if(text.trim().split(" ")[0] === 'hello'){
-    hello(text.trim().slice(6));
+  else if (text.trim().split(" ")[0] === 'hello') {
+    hello(text.trim());
   }
-  else{
+  else {
     unknownCommand(text);
-  
+
   }
 }
 
@@ -58,8 +58,8 @@ function onDataReceived(text) {
  * @param  {string} c the text received
  * @returns {void}
  */
-function unknownCommand(c){
-  console.log('unknown command: "'+c.trim()+'"')
+function unknownCommand(c) {
+  console.log('unknown command: "' + c.trim() + '"')
 }
 
 
@@ -68,8 +68,11 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(text){
-  console.log('hello!'+text)
+function hello(text) {
+  if (text.trim() === "hello")
+    console.log("hello!")
+  else
+    console.log(text.trim() + "!")
 }
 
 
@@ -78,7 +81,7 @@ function hello(text){
  *
  * @returns {void}
  */
-function quit(){
+function quit() {
   console.log('Quitting now, goodbye!')
   process.exit();
 }
@@ -86,7 +89,7 @@ function quit(){
 /*
 in write word help a view 2 word "hello" and "quit"
 */
-function help(){
+function help() {
   console.log('hello');
   console.log('quit');
 }
