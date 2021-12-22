@@ -80,6 +80,10 @@ function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
 }
+
+/*
+in write word help a view 2 word "hello" and "quit"
+*/
 function help(){
   console.log('hello');
   console.log('quit');
